@@ -1,0 +1,115 @@
+#!/usr/bin/perl
+
+use Getopt::Std;
+
+#grab command line options
+# -b bamFile
+getopt('b', \%opts);
+$bamFileName = $opts{"b"};
+
+#grab references
+%refs = grabGenomeInfo($bamFileName);
+
+#prepare empty bins
+%coverageData=prepareCoverageStorage(%refs);
+
+#fill arrays (pipe in samtools depth here)
+
+while(<STDIN>)
+{
+    ($ref,$pos,$cov)=split(/\t/,$_);
+    #check bounds of coverage. As it will be exported as a 2byte unsigned int (unsigned short), it cannot exceed 65535
+    $cov>65535 ? $coverageData{$ref}[$pos]=65535 :  $coverageData{$ref}[$pos]=$cov;
+}
+
+foreach $key (%coverageData)
+{
+   
+    print "FileName: $outFileName \tSize: ".length($coverageData{$key})."\n";
+    #TODO@@@ This bit is screwy. For some reason there are more hash keys than chromosomes.  
+    #So I filter them out and only keep ones with actual entries.
+    if(length($coverageData{$key})>0)
+    {
+	 #prepare output file
+	$outFileName = $bamFileName.".".$key;
+	$binaryOutFileName = $bamFileName.".".$key.".bin";
+
+	#print "FILENAME: $outFileName\n";
+	open FILE,">", $outFileName or die $!;
+	open (my $binFile, '>:raw', $binaryOutFileName) or die $!;
+
+	for($i=0;$i<$refs{$key};++$i)
+	{
+	    if(defined $coverageData{$key}[$i])
+	    {
+		print FILE $key."\t".($i+1)."\t".$coverageData{$key}[$i]."\n";
+		print $binFile pack('S<',$coverageData{$key}[$i]);
+	    }
+	    else
+	    {
+		print FILE $key."\t".($i+1)."\t0\n";
+		print $binFile pack('S<',0);
+	    }
+	}	 
+	close FILE;
+	close $binFile;
+       
+    }
+}
+
+
+##reads header info of bam file and returns hash of chromosomeName:length.
+# Provide with bam file name e.g.
+# %refs = grabGenomeInfo($bamFileName); 
+sub grabGenomeInfo
+{
+    $header=`samtools view -H $_[0]`;
+    $reference;
+    foreach (split(/\n/,$header))
+    {
+	@columns =  (split(/\t/,$_));
+	if($columns[0]=="@SQ")
+	{
+	    #check ordering of LN and SN
+	    if (substr($columns[1],0,3)=="SN:")
+	    {
+		$reference{substr($columns[1],3)}=substr($columns[2],3);
+	    }
+	    elsif (substr($columns[2],0,3)=="LN:")
+	    {
+		$reference{substr($columns[2],3)}=substr($columns[1],3);
+	    }		
+	}
+    }
+   
+    return %reference;
+   
+}
+
+
+##Uses obtained header info hash to generate array of 0s representing empty coverage bins across all references.
+# Provide with hash of chromosomeName:length
+# Returns hash of bins (reference to)
+sub prepareCoverageStorage
+{
+    #grab hash
+    my $params = shift;
+    my %refs=%$params;
+
+    #for each reference, create an array of 0s - array len = length of reference
+    #this is done to fill in the zero coverage regions prior to extracting data using samtools depth
+    #TODO@@@ Doesn't seem to work!
+    my %storage;
+    while(($key,$value)=each(%refs))
+    {
+#	$storage{$key}=(0)x$value;
+	@bins;
+	for($i=0;$i<$value;++$i)
+	{
+	    push(@bins,"0");
+	}
+	$storage{$key}=@bins;
+    }
+
+    return \%storage
+}
