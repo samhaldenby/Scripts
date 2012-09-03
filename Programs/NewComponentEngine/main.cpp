@@ -9,7 +9,13 @@
 
 int main()
 {
-    Core core;
+    Core core("coreConfig.xml");
+
+    core.getObjectBuilder()->createObject("player");
+    core.getObjectBuilder()->createObject("simpleBullet");
+    core.getObjectBuilder()->createObject("coin");
+    core.getObjectBuilder()->createObject("livingQuarters");
+
     System<HealthComp> hSub(&core);
     System<NameComp> nSub(&core);
     nSub.addComponent(1);

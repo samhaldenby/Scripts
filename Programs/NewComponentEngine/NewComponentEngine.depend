@@ -11,12 +11,13 @@
 	"Message.h"
 	<map>
 
-1346670642 /home/sh695/Documents/Programs/NewComponentEngine/Core.h
+1346673701 /home/sh695/Documents/Programs/NewComponentEngine/Core.h
 	"ObjectStore.h"
 	"Store.h"
 	"Systems.h"
 	"HealthComp.h"
 	"NameComp.h"
+	"ObjectBuilder.h"
 	<string>
 
 1346670106 /home/sh695/Documents/Programs/NewComponentEngine/TypeDefs.h
@@ -38,7 +39,7 @@
 1346664586 /home/sh695/Documents/Programs/NewComponentEngine/HealthComp.h
 	"Components.h"
 
-1346668797 source:/home/sh695/Documents/Programs/NewComponentEngine/main.cpp
+1346673680 source:/home/sh695/Documents/Programs/NewComponentEngine/main.cpp
 	<iostream>
 	<vector>
 	"Core.h"
@@ -83,7 +84,7 @@
 1346667221 /home/sh695/Documents/Programs/NewComponentEngine/Object.h
 	"TypeDefs.h"
 
-1346668508 source:/home/sh695/Documents/Programs/NewComponentEngine/ObjectStore.cpp
+1346670927 source:/home/sh695/Documents/Programs/NewComponentEngine/ObjectStore.cpp
 	"ObjectStore.h"
 	"Object.h"
 	"Core.h"
@@ -149,4 +150,19 @@
 1346670601 /home/sh695/Documents/Programs/NewComponentEngine/ObjectBuilder.h
 	<string>
 	"TypeDefs.h"
+
+1346673640 source:/home/sh695/Documents/Programs/NewComponentEngine/ObjectBuilder.cpp
+	"ObjectBuilder.h"
+	"ObjectStore.h"
+	"Core.h"
+	"Store.h"
+	"Object.h"
+
+1346670518 source:/home/sh695/Documents/Programs/NewComponentEngine/Ui.cpp
+	<boost/property_tree/ptree.hpp>
+	<boost/property_tree/xml_parser.hpp>
+	"Ui.h"
+
+1346670565 source:/home/sh695/Documents/Programs/NewComponentEngine/Vector2d.cpp
+	"Vector2d.h"
 

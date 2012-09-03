@@ -7,6 +7,7 @@
 #include "Systems.h"
 #include "HealthComp.h"
 #include "NameComp.h"
+#include "ObjectBuilder.h"
 
 
 #include <string>
