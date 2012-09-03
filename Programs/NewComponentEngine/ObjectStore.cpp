@@ -51,16 +51,21 @@ void ObjectStore::removeObject(ObjectId id)
 //                    core_->getGfxSub()->removeComponent(id);
 //                    break;
 //                }
-//                case (cFlag::Coords):
-//                {
-//                    core_->getCoordsSub()->removeComponent(id);
-//                    break;
-//                }
+                case (cFlag::Coords):
+                {
+                    core_->getCoordsSub()->removeComponent(id);
+                    break;
+                }
 //                case (cFlag::Audio):
 //                {
 //                    core_->getAudioSub()->removeComponent(id);
 //                    break;
 //                }
+                case (cFlag::Name):
+                {
+                    core_->getNameSub()->removeComponent(id);
+                    break;
+                }
 //                case (cFlag::Move):
 //                {
 //                    core_->getMoveSub()->removeComponent(id);
@@ -71,11 +76,11 @@ void ObjectStore::removeObject(ObjectId id)
 //                    core_->getInputSub()->removeComponent(id);
 //                    break;
 //                }
-//                case (cFlag::Health):
-//                {
-//                    core_->getHealthSub()->removeComponent(id);
-//                    break;
-//                }
+                case (cFlag::Health):
+                {
+                    core_->getHealthSub()->removeComponent(id);
+                    break;
+                }
 //                case (cFlag::Collision):
 //                {
 //                    core_->getCollisionSub()->removeComponent(id);

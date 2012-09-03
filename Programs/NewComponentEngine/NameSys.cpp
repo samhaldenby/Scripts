@@ -27,10 +27,10 @@ void System<NameComp>::deliverMessage_(Message message)
     //read message!
     std::string mainCmd = params[1];
 
-//    if(mainCmd=="change")
-//    {
-//        targetComponent->setSprite(params[2]);
-//    }
+    if(mainCmd=="change")
+    {
+        targetComponent->setName(params[2]);
+    }
 }
 
 

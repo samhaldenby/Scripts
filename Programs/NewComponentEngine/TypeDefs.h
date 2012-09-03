@@ -17,7 +17,7 @@ namespace cType
     enum{   Health=1,
             Name=2,
             Coords=3,
-            Audio=4};
+            Move=4};
 }
 
 //@@@Requires updating on addition on new subsystem" when adding new subsystems
@@ -34,7 +34,8 @@ namespace cFlag
             Collision=128,
             Health=256,
             OnSelect=512,
-            MAX=1024,
+            Name=1024,
+            MAX=2048,
         };
 
 

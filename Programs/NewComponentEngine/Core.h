@@ -7,6 +7,7 @@
 #include "Systems.h"
 #include "HealthComp.h"
 #include "NameComp.h"
+#include "CoordsComp.h"
 #include "ObjectBuilder.h"
 
 
@@ -34,12 +35,14 @@ class Core
 
         System<HealthComp>* getHealthSub();
         System<NameComp>*   getNameSub();
+        System<CoordsComp>* getCoordsSub();
 
 
 
     private:
         System<HealthComp>* healthSub_;
         System<NameComp>*   nameSub_;
+        System<CoordsComp>* coordsSub_;
 
         Store* store_;
         ObjectBuilder* objectBuilder_;

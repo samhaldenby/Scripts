@@ -1,8 +1,9 @@
 # depslib dependency file v1.0
-1346669486 source:/home/sh695/Documents/Programs/NewComponentEngine/Systems.cpp
+1346679761 source:/home/sh695/Documents/Programs/NewComponentEngine/Systems.cpp
 	"Systems.h"
 	"HealthComp.h"
 	"NameComp.h"
+	"CoordsComp.h"
 	<iostream>
 	<typeinfo>
 
@@ -11,16 +12,17 @@
 	"Message.h"
 	<map>
 
-1346673701 /home/sh695/Documents/Programs/NewComponentEngine/Core.h
+1346679574 /home/sh695/Documents/Programs/NewComponentEngine/Core.h
 	"ObjectStore.h"
 	"Store.h"
 	"Systems.h"
 	"HealthComp.h"
 	"NameComp.h"
+	"CoordsComp.h"
 	"ObjectBuilder.h"
 	<string>
 
-1346670106 /home/sh695/Documents/Programs/NewComponentEngine/TypeDefs.h
+1346679550 /home/sh695/Documents/Programs/NewComponentEngine/TypeDefs.h
 	<vector>
 	<string>
 	<boost/property_tree/ptree.hpp>
@@ -39,11 +41,12 @@
 1346664586 /home/sh695/Documents/Programs/NewComponentEngine/HealthComp.h
 	"Components.h"
 
-1346673680 source:/home/sh695/Documents/Programs/NewComponentEngine/main.cpp
+1346679359 source:/home/sh695/Documents/Programs/NewComponentEngine/main.cpp
 	<iostream>
 	<vector>
 	"Core.h"
 	"Systems.h"
+	"MessageCentre.h"
 	"HealthComp.h"
 	"NameComp.h"
 
@@ -84,7 +87,7 @@
 1346667221 /home/sh695/Documents/Programs/NewComponentEngine/Object.h
 	"TypeDefs.h"
 
-1346670927 source:/home/sh695/Documents/Programs/NewComponentEngine/ObjectStore.cpp
+1346679550 source:/home/sh695/Documents/Programs/NewComponentEngine/ObjectStore.cpp
 	"ObjectStore.h"
 	"Object.h"
 	"Core.h"
@@ -94,7 +97,7 @@
 	<map>
 	"TypeDefs.h"
 
-1346668648 source:/home/sh695/Documents/Programs/NewComponentEngine/Telegram.cpp
+1346679550 source:/home/sh695/Documents/Programs/NewComponentEngine/Telegram.cpp
 	"Telegram.h"
 	"Message.h"
 	"Object.h"
@@ -103,12 +106,12 @@
 	"Systems.h"
 	<iostream>
 
-1346669343 source:/home/sh695/Documents/Programs/NewComponentEngine/NameSys.cpp
+1346675011 source:/home/sh695/Documents/Programs/NewComponentEngine/NameSys.cpp
 	"Systems.h"
 	"NameComp.h"
 	<iostream>
 
-1346669497 source:/home/sh695/Documents/Programs/NewComponentEngine/HealthSys.cpp
+1346679761 source:/home/sh695/Documents/Programs/NewComponentEngine/HealthSys.cpp
 	"Systems.h"
 	"HealthComp.h"
 	<iostream>
@@ -128,7 +131,7 @@
 	"Core.h"
 	"Store.h"
 
-1346670753 source:/home/sh695/Documents/Programs/NewComponentEngine/Core.cpp
+1346679359 source:/home/sh695/Documents/Programs/NewComponentEngine/Core.cpp
 	<iostream>
 	<fstream>
 	<boost/property_tree/ptree.hpp>
@@ -151,7 +154,7 @@
 	<string>
 	"TypeDefs.h"
 
-1346673640 source:/home/sh695/Documents/Programs/NewComponentEngine/ObjectBuilder.cpp
+1346679610 source:/home/sh695/Documents/Programs/NewComponentEngine/ObjectBuilder.cpp
 	"ObjectBuilder.h"
 	"ObjectStore.h"
 	"Core.h"
@@ -165,4 +168,17 @@
 
 1346670565 source:/home/sh695/Documents/Programs/NewComponentEngine/Vector2d.cpp
 	"Vector2d.h"
+
+1346679268 source:/home/sh695/Documents/Programs/NewComponentEngine/CoordsComp.cpp
+	"CoordsComp.h"
+
+1346679550 /home/sh695/Documents/Programs/NewComponentEngine/CoordsComp.h
+	"Components.h"
+	"Vector2d.h"
+	"TypeDefs.h"
+
+1346679766 source:/home/sh695/Documents/Programs/NewComponentEngine/CoordsSys.cpp
+	"Systems.h"
+	"CoordsComp.h"
+	<iostream>
 

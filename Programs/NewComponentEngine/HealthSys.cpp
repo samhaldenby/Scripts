@@ -66,7 +66,6 @@ void System<HealthComp>::update(double elapsed)
 //    }
 //    window_->Display();
 
-    std::cout << "NOT IMPLEMENTED IN BASE CLASS (UPDATE)" << std::endl;
 }
 
 

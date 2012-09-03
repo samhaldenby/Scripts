@@ -49,7 +49,11 @@ bool Telegram::isValid()
 //@@@Requires updating on addition on new subsystem
 void Telegram::sendMessage()
 {
-    std::cout << "Implement Telegram::sendMessage()" << std::endl;
+//    std::cout << "Implement Telegram::sendMessage()" << std::endl;
+    std::string targetSub = message_.getParameters()[0];
+    if (targetSub=="health") core_->getHealthSub()->addMessage(message_);
+    else if (targetSub=="name") core_->getNameSub()->addMessage(message_);
+    else if (targetSub=="coords") core_->getCoordsSub()->addMessage(message_);
 //    std::cout << "Sending message from telegram " << this << std::endl;
 //
 //    //select target based on first argument of message

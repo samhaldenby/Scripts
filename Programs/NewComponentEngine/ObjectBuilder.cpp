@@ -28,7 +28,7 @@ void ObjectBuilder::createObject(std::string blueprintName)
     //check for gfx
 //    bool hasGfx = blueprint->get("Object.Gfx",false);
 //    bool hasCollision = blueprint->get("Object.Collision",false);
-//    bool hasCoords = blueprint->get("Object.Coords",false);
+    bool hasCoords = blueprint->get("Object.Coords",false);
 //    bool hasSfx = blueprint->get("Object.Sfx", false);
     bool hasHealth = blueprint->get("Object.Health", false);
 //    bool hasMove = blueprint->get("Object.Move", false);
@@ -65,13 +65,13 @@ void ObjectBuilder::createObject(std::string blueprintName)
 //        CollisionComponent* collision = core_->getCollisionSub()->getComponent(objectId);
 //    }
 //
-//    if(hasCoords)
-//    {
-//        object->addFlag(cFlag::Coords);
-//        core_->getCoordsSub()->addComponent(objectId);
-//        CoordsComponent* coords = core_->getCoordsSub()->getComponent(objectId);
-//        coords->setCoords(Vector2d(blueprint->get("Object.Coords.x",0.f) , blueprint->get("Object.Coords.y",0.f)));
-//    }
+    if(hasCoords)
+    {
+        object->addFlag(cFlag::Coords);
+        core_->getCoordsSub()->addComponent(objectId);
+        CoordsComp* coords = core_->getCoordsSub()->getComponent(objectId);
+        coords->setCoords(Vector2d(blueprint->get("Object.Coords.x",0.f) , blueprint->get("Object.Coords.y",0.f)));
+    }
 
     if(hasHealth)
     {
