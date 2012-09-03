@@ -1,5 +1,7 @@
 #include "Systems.h"
 #include "MoveComp.h"
+#include "CoordsComp.h"
+#include "Core.h"
 #include <iostream>
 
 template <>
@@ -11,9 +13,30 @@ void System<MoveComp>::update(double elapsed)
     std::map<ObjectId,MoveComp>::iterator iCom = components_.begin();
     while(iCom!=components_.end())
     {
-        MoveComp* currComponent = &iCom->second;
+        MoveComp* currComp = &iCom->second;
+        //grab corresponding Coords comp
+        CoordsComp* coordsComp = core_->getCoordsSub()->getComponent(iCom->second.getId());
+
+        //check dist from target
+        double distFromTarget = sqrt(pow(coordsComp->getCoords().x -currComp->getLocalDestination().x , 2) *
+                                pow(coordsComp->getCoords().y -currComp->getLocalDestination().y , 2));
 
 
+        if (distFromTarget <= MIN_DIST)
+        {
+            currComp->setMove(Vector2d(0,0));
+        }
+        else
+        {
+            //determine move speeds
+            double distX = currComp->getLocalDestination().x - coordsComp->getCoords().x;
+            double distY = currComp->getLocalDestination().y - coordsComp->getCoords().y;
+
+            currComp->setMove(Vector2d(distX/distFromTarget, distY/distFromTarget));
+        }
+
+        //now move
+        coordsComp->setCoords(coordsComp->getCoords() + currComp->getMove());
 
         ++iCom;
     }
@@ -38,10 +61,10 @@ void System<MoveComp>::deliverMessage_(Message message)
     //read message!
     std::string mainCmd = params[1];
 
-//    if (mainCmd=="changeMaxBy")
-//    {
-//        targetComponent->setMax(targetComponent->getMax() + atoi(params[2].c_str()));
-//    }
+    if (mainCmd=="setLocalDest")
+    {
+        targetComponent->setLocalDestination(Vector2d(atoi(params[2].c_str()),atoi(params[3].c_str())));
+    }
 //
 //    else if (mainCmd=="changeCurrBy")
 //    {

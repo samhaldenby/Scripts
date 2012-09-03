@@ -12,6 +12,8 @@ typedef unsigned long CompType;
 typedef unsigned short ComponentFlag;
 typedef std::vector<std::string> Parameters;
 
+const int MIN_DIST = 4;
+
 namespace cType
 {
     enum{   Health=1,

@@ -24,7 +24,7 @@
 	"ObjectBuilder.h"
 	<string>
 
-1346679550 /home/sh695/Documents/Programs/NewComponentEngine/TypeDefs.h
+1346681265 /home/sh695/Documents/Programs/NewComponentEngine/TypeDefs.h
 	<vector>
 	<string>
 	<boost/property_tree/ptree.hpp>
@@ -43,7 +43,7 @@
 1346664586 /home/sh695/Documents/Programs/NewComponentEngine/HealthComp.h
 	"Components.h"
 
-1346679359 source:/home/sh695/Documents/Programs/NewComponentEngine/main.cpp
+1346683976 source:/home/sh695/Documents/Programs/NewComponentEngine/main.cpp
 	<iostream>
 	<vector>
 	"Core.h"
@@ -184,11 +184,18 @@
 	"CoordsComp.h"
 	<iostream>
 
-1346680516 /home/sh695/Documents/Programs/NewComponentEngine/MoveComp.h
+1346681844 /home/sh695/Documents/Programs/NewComponentEngine/MoveComp.h
 	"Components.h"
 	"Vector2d.h"
 	"TypeDefs.h"
 
-1346680497 source:/home/sh695/Documents/Programs/NewComponentEngine/MoveComp.cpp
+1346681534 source:/home/sh695/Documents/Programs/NewComponentEngine/MoveComp.cpp
 	"MoveComp.h"
+
+1346683963 source:/home/sh695/Documents/Programs/NewComponentEngine/MoveSys.cpp
+	"Systems.h"
+	"MoveComp.h"
+	"CoordsComp.h"
+	"Core.h"
+	<iostream>
 

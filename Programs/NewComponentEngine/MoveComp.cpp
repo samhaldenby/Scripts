@@ -18,3 +18,13 @@ Vector2d MoveComp::getMove()
 {
     return move_;
 }
+
+void MoveComp::setLocalDestination(Vector2d d)
+{
+    localDestination_ = d;
+}
+
+Vector2d MoveComp::getLocalDestination()
+{
+    return localDestination_;
+}

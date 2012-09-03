@@ -33,7 +33,7 @@ int main()
 
         //update subsystems
 //        core.getInputSub()->update(elapsed);
-//        core.getMoveSub()->update(elapsed);
+        core.getMoveSub()->update(elapsed);
 //        core.getGfxSub()->update(elapsed);
         core.getHealthSub()->update(elapsed);
         core.getNameSub()->update(elapsed);

@@ -38,10 +38,10 @@ void System<CoordsComp>::deliverMessage_(Message message)
     //read message!
     std::string mainCmd = params[1];
 
-//    if (mainCmd=="changeMaxBy")
-//    {
-//        targetComponent->setMax(targetComponent->getMax() + atoi(params[2].c_str()));
-//    }
+    if (mainCmd=="setCoords")
+    {
+        targetComponent->setCoords(Vector2d(atoi(params[2].c_str()),atoi(params[3].c_str())));
+    }
 //
 //    else if (mainCmd=="changeCurrBy")
 //    {
