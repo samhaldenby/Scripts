@@ -2,6 +2,7 @@
 #include "HealthComp.h"
 #include "NameComp.h"
 #include "CoordsComp.h"
+#include "MoveComp.h"
 #include <iostream>
 #include <typeinfo>
 //@@@Requires updating on addition on new subsystem" when adding new subsystems
@@ -87,4 +88,5 @@ void System<T>::addMessage(Message message)
 template class System<HealthComp>;
 template class System<NameComp>;
 template class System<CoordsComp>;
+template class System<MoveComp>;
 

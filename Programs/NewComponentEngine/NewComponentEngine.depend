@@ -1,9 +1,10 @@
 # depslib dependency file v1.0
-1346679761 source:/home/sh695/Documents/Programs/NewComponentEngine/Systems.cpp
+1346680699 source:/home/sh695/Documents/Programs/NewComponentEngine/Systems.cpp
 	"Systems.h"
 	"HealthComp.h"
 	"NameComp.h"
 	"CoordsComp.h"
+	"MoveComp.h"
 	<iostream>
 	<typeinfo>
 
@@ -12,13 +13,14 @@
 	"Message.h"
 	<map>
 
-1346679574 /home/sh695/Documents/Programs/NewComponentEngine/Core.h
+1346680510 /home/sh695/Documents/Programs/NewComponentEngine/Core.h
 	"ObjectStore.h"
 	"Store.h"
 	"Systems.h"
 	"HealthComp.h"
 	"NameComp.h"
 	"CoordsComp.h"
+	"MoveComp.h"
 	"ObjectBuilder.h"
 	<string>
 
@@ -87,7 +89,7 @@
 1346667221 /home/sh695/Documents/Programs/NewComponentEngine/Object.h
 	"TypeDefs.h"
 
-1346679550 source:/home/sh695/Documents/Programs/NewComponentEngine/ObjectStore.cpp
+1346680497 source:/home/sh695/Documents/Programs/NewComponentEngine/ObjectStore.cpp
 	"ObjectStore.h"
 	"Object.h"
 	"Core.h"
@@ -97,7 +99,7 @@
 	<map>
 	"TypeDefs.h"
 
-1346679550 source:/home/sh695/Documents/Programs/NewComponentEngine/Telegram.cpp
+1346680497 source:/home/sh695/Documents/Programs/NewComponentEngine/Telegram.cpp
 	"Telegram.h"
 	"Message.h"
 	"Object.h"
@@ -131,7 +133,7 @@
 	"Core.h"
 	"Store.h"
 
-1346679359 source:/home/sh695/Documents/Programs/NewComponentEngine/Core.cpp
+1346680497 source:/home/sh695/Documents/Programs/NewComponentEngine/Core.cpp
 	<iostream>
 	<fstream>
 	<boost/property_tree/ptree.hpp>
@@ -154,7 +156,7 @@
 	<string>
 	"TypeDefs.h"
 
-1346679610 source:/home/sh695/Documents/Programs/NewComponentEngine/ObjectBuilder.cpp
+1346680588 source:/home/sh695/Documents/Programs/NewComponentEngine/ObjectBuilder.cpp
 	"ObjectBuilder.h"
 	"ObjectStore.h"
 	"Core.h"
@@ -181,4 +183,12 @@
 	"Systems.h"
 	"CoordsComp.h"
 	<iostream>
+
+1346680516 /home/sh695/Documents/Programs/NewComponentEngine/MoveComp.h
+	"Components.h"
+	"Vector2d.h"
+	"TypeDefs.h"
+
+1346680497 source:/home/sh695/Documents/Programs/NewComponentEngine/MoveComp.cpp
+	"MoveComp.h"
 

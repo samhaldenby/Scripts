@@ -33,6 +33,7 @@ Core::Core(std::string coreConfigFileName)
     healthSub_ = new System<HealthComp>(this);
     nameSub_ = new System<NameComp>(this);
     coordsSub_ = new System<CoordsComp>(this);
+    moveSub_ = new System<MoveComp>(this);
 
 }
 
@@ -84,7 +85,14 @@ System<NameComp>* Core::getNameSub()
     return nameSub_;
 }
 
+
 System<CoordsComp>* Core::getCoordsSub()
 {
     return coordsSub_;
+}
+
+
+System<MoveComp>* Core::getMoveSub()
+{
+    return moveSub_;
 }

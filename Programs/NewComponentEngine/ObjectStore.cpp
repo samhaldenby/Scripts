@@ -66,11 +66,11 @@ void ObjectStore::removeObject(ObjectId id)
                     core_->getNameSub()->removeComponent(id);
                     break;
                 }
-//                case (cFlag::Move):
-//                {
-//                    core_->getMoveSub()->removeComponent(id);
-//                    break;
-//                }
+                case (cFlag::Move):
+                {
+                    core_->getMoveSub()->removeComponent(id);
+                    break;
+                }
 //                case (cFlag::Input):
 //                {
 //                    core_->getInputSub()->removeComponent(id);

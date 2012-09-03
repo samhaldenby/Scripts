@@ -24,6 +24,7 @@ void ObjectBuilder::createObject(std::string blueprintName)
     }
 
     //grab name
+    bool hasName = blueprint->get("Object.Name",false);
     std::string name = blueprint->get("Object.Name","NO NAME");
     //check for gfx
 //    bool hasGfx = blueprint->get("Object.Gfx",false);
@@ -31,7 +32,7 @@ void ObjectBuilder::createObject(std::string blueprintName)
     bool hasCoords = blueprint->get("Object.Coords",false);
 //    bool hasSfx = blueprint->get("Object.Sfx", false);
     bool hasHealth = blueprint->get("Object.Health", false);
-//    bool hasMove = blueprint->get("Object.Move", false);
+    bool hasMove = blueprint->get("Object.Move", false);
 //    bool hasInput = blueprint->get("Object.Input", false);
 //    bool hasOnSelect = blueprint->get("Object.OnSelect", false);
 
@@ -42,7 +43,8 @@ void ObjectBuilder::createObject(std::string blueprintName)
 //    std::cout << (hasCollision ? "has" : "does not have") << " Collision" << std::endl;
 //    std::cout << (hasSfx ? "has" : "does not have") << " Sfx" << std::endl;
     std::cout << (hasHealth ? "has" : "does not have") << " Health " << std::endl;
-//    std::cout << (hasMove ? "has" : "does not have") << " Move " << std::endl;
+    std::cout << (hasMove ? "has" : "does not have") << " Move " << std::endl;
+    std::cout << (hasName ? "has" : "does not have") << " Name " << std::endl;
 //    std::cout << (hasInput ? "has" : "does not have") << " Input " << std::endl;
 //    std::cout << (hasOnSelect ? "has" : "does not have") << " OnSelect " << std::endl;
 
@@ -65,6 +67,13 @@ void ObjectBuilder::createObject(std::string blueprintName)
 //        CollisionComponent* collision = core_->getCollisionSub()->getComponent(objectId);
 //    }
 //
+    if(hasName)
+    {
+        object->addFlag(cFlag::Name);
+        core_->getNameSub()->addComponent(objectId);
+        NameComp* name = core_->getNameSub()->getComponent(objectId);
+        name->setName(blueprint->get("Object.Name","NO NAME"));
+    }
     if(hasCoords)
     {
         object->addFlag(cFlag::Coords);
@@ -82,13 +91,13 @@ void ObjectBuilder::createObject(std::string blueprintName)
         health->setCurrent(blueprint->get("Object.Health.Current", 0));
     }
 
-//    if(hasMove)
-//    {
-//        object->addFlag(cFlag::Move);
-//        core_->getMoveSub()->addComponent(objectId);
-//        MoveComponent* move = core_->getMoveSub()->getComponent(objectId);
-//        move->setMove(Vector2d(blueprint->get("Object.Move.x",0.f), blueprint->get("Object.Move.y",0.f)));
-//    }
+    if(hasMove)
+    {
+        object->addFlag(cFlag::Move);
+        core_->getMoveSub()->addComponent(objectId);
+        MoveComp* move = core_->getMoveSub()->getComponent(objectId);
+        move->setMove(Vector2d(blueprint->get("Object.Move.x",0.f), blueprint->get("Object.Move.y",0.f)));
+    }
 //
 //    if(hasInput)
 //    {
